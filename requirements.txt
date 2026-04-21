@@ -1,4 +1,6 @@
 flask
-PyMuPDF
+gunicorn
+python-dotenv
+PyPDF2
 langchain
-ollama 
+google-generativeai

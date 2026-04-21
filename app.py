@@ -4,7 +4,6 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 import os
 import shutil
-import ollama
 from summarizer import summarize_book
 
 app = FastAPI()
@@ -26,13 +25,7 @@ async def index(request: Request):
 
 @app.get("/status")
 async def get_status():
-    status = {"ollama": False, "gemini": True}
-    try:
-        ollama.list()
-        status["ollama"] = True
-    except Exception:
-        status["ollama"] = False
-    return status
+    return {"gemini": True}
 
 
 @app.post("/upload")
